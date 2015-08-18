@@ -75,17 +75,6 @@ WSGI_APPLICATION = 'wineapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wineapp',
-	'USER': 'wineapp',
-	'PASSWORD': 'password',
-	'HOST': 'localhost',
-	'PORT': '3306'
-    }
-}
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -105,3 +94,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Some mildly sensitive settings are kept out this file, such as the secret
+# key, database settings, etc.
+
+try:
+    from django.conf.local_settings import *
+except ImportError:
+    pass
